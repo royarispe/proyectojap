@@ -21,7 +21,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
+            <a class="nav-link" href="indexxx.html">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="categories.html">Categorías</a>
@@ -30,17 +30,117 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
+            
+            <div class="dropdown">
+              <!-- Donde cargamos el usuario por js para mostrar en pantalla-->
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="userShow">
+            </button>
+            <ul class="dropdown-menu">
+                <!-- Cambiar nombres de submenu -->
+                <li><a class="dropdown-item" href="/cart.html">Mi carrito</a></li>
+                <li><a class="dropdown-item" href="/my-profile.html">Mi perfil</a></li>
+                <li><a class="dropdown-item" id="cerrar" href="#">Cerrar sesion</a></li>
+              </ul>
+            </div>
+
           </li>
         </ul>
       </div>
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+     <!-- Acá enviamos los productos del carro. -->
+    <div class="container" id="listacarrito">
     </div>
+    <div class="container">
+      <hr>
+      <h4>Tipo de envio</h4>
+      <br>
+      <form>
+          <input type="radio" id="premium" name="tipoEnvio" value="premium">
+          <label for="premium">Premium 2 a 5 días (15%)</label><br>
+          <input type="radio" id="express" name="tipoEnvio" value="express">
+          <label for="express">Express 5 a 9 días (7%)</label><br>
+          <input type="radio" id="standar" name="tipoEnvio" value="standar">
+          <label for="standar">Standar 12 a 15 días (5%)</label>
+        </form>
+      <br>
+      <hr>
+      <h4>Dirección de envío</h4>
+      <form>
+        <label for="calle">Calle:</label><br>
+        <input type="text" id="calle" name="calle"><br>
+        <br>
+        <label for="numero">Número:</label><br>
+        <input type="text" id="numero" name="numero"><br>
+        <br>
+        <label for="esquina">Esquina:</label><br>
+        <input type="text" id="esquina" name="esquina">
+      </form>
+    </div>
+
+    <!-- Acá va la sección costos. -->
+    <div class="container" id="costosCarrito">
+      
+    </div>
+    
+    <!-- Acá va el modal de la forma de pago -->
+    <div class="container">
+      <br>
+      <hr>
+      <h5> Forma de pago</h5>
+      
+      <div class="col-sm-12">
+        <button id="pag" type="button" class="btn btn-link ps-0" data-bs-toggle="modal"
+          data-bs-target="#modalModo">Seleccionar</button>
+          <div id="pagFalse" class="invalid-feedback">
+            Debe seleccionar una forma de pago
+          </div>
+      </div>
+
+      <div class="modal fade" id="modalModo" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5">Forma de pago.</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            
+            <div class="modal-body">
+
+              <!-- Datos de la tarjeta de crédito -->
+              <input type="radio" id="tarjetaCredito" name="formaPago" value="TC">
+              <label for="tarjetaCredito">Tarjeta de crédito</label><br>
+                <div id="datosTarjeta">
+                <hr>
+
+                    <label for="nTarjeta">Número de tarjeta</label><br>
+                    <input type="text" id="nTarjeta" name="nTarjeta"><br>
+                    <br>
+
+                    <label for="codSeg">Código de seg.</label><br>
+                    <input type="text" id="codSeg" name="codSeg"><br>
+                    <br>
+
+                    <label for="vencTarj">Vencimiento(MM/AA)</label><br>
+                    <input type="text" id="vencTarj" name="vencTarj">
+                </div>
+            
+              <!-- Datos de la cuenta bancaria -->
+              <br>
+              <input type="radio" id="transferenciaBancaria" name="formaPago" value="TB">
+              <label for="transferenciaBancaria">Transferencia bancaria</label><br>
+              <hr>
+              <div id="datosCuentaBancaria">
+                <label for="nCuenta">Número de cuenta</label><br>
+                <input type="text" id="nCuenta" name="nCuenta"><br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
   </main>
   <footer class="text-muted">
     <div class="container">

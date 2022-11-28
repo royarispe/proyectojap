@@ -28,6 +28,9 @@ function updateTotalCosts(){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+    
+    document.getElementById("userShow").innerHTML = localStorage.getItem("Usuario");
+
     document.getElementById("productCountInput").addEventListener("change", function(){
         productCount = this.value;
         updateTotalCosts();
@@ -65,7 +68,6 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         updateTotalCosts();
     });
-
 
     //Configuraciones para el elemento que sube archivos
     let dzoptions = {
@@ -146,4 +148,10 @@ document.addEventListener("DOMContentLoaded", function(e){
             });
         }
     });
+
+    cerrar.addEventListener("click", ()=>{
+        localStorage.removeItem("Usuario");
+        window.location = "index.html";
+    });
+
 });

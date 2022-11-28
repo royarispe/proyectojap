@@ -96,6 +96,8 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
     });
 
+    document.getElementById("userShow").innerHTML = localStorage.getItem("Usuario");
+
     document.getElementById("sortAsc").addEventListener("click", function(){
         sortAndShowCategories(ORDER_ASC_BY_NAME);
     });
@@ -140,4 +142,10 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         showCategoriesList();
     });
+
+    cerrar.addEventListener("click", ()=>{
+        localStorage.removeItem("Usuario");
+        window.location = "index.html";
+    });
+
 });
